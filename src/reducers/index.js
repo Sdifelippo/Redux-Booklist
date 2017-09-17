@@ -13,11 +13,11 @@ const ActiveBook = (state = null, action) => {
   switch(action.type) {
     case 'BOOK_SELECTED':
     return action.payload
-  }
+    default:
   return state;
 
+  }
 }
-
 // can never return a mutated state in reducers..must be fresh state or original
 //because we dont have a selected book right off the bat, we get an error
 
