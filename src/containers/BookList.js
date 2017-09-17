@@ -26,30 +26,22 @@ class BookList extends Component {
         );
       }
     }
-    return (
-      <ul className="list-group col-sm-4">
-        {/* return your mapped array list items here */}
-      </ul>
-    );
-  }
-}
+    function mapStateToProps(state) {
+      console.log("mapstate", state.books);
+      //what is returned will show up as props inside of BookList
+      //this gives you access to books in props.. (books would be good for mapping)
+      return {
+        books: state.books,
+      };
+    }
 
-function mapStateToProps(state) {
-  console.log("mapstate", state.books);
-  //what is returned will show up as props inside of BookList
-  //this gives you access to books in props.. (books would be good for mapping)
-  return {
-    books: state.books,
-  };
-}
+    //anything returned from this function will end up as props on
+    //BookList Container.
+    function mapDispatchToProps(dispatch) {
+      //whenever selectBook is called, result should be passed to
+      //all of the reducers. (flows through dispatch function -- like a funnel)
+        return bindActionCreators({ selectBook: selectBook }, dispatch)
+    }
 
-//anything returned from this function will end up as props on
-//BookList Container.
-function mapDispatchToProps(dispatch) {
-  //whenever selectBook is called, result should be passed to
-  //all of the reducers. (flows through dispatch function -- like a funnel)
-    return bindActionCreators({ selectBook: selectBook }, dispatch)
-}
-
-//connect all functions to container component
-export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+    //connect all functions to container component
+    export default connect(mapStateToProps, mapDispatchToProps)(BookList);
