@@ -13,10 +13,8 @@ import reducers from './reducers';
 //react router imports
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-
 //components
 import App from './components/App';
-
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 

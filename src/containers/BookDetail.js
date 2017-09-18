@@ -4,7 +4,6 @@ import { selectBook }  from '../actions/index';
 //make sure action created flows through all reducers
 import { bindActionCreators } from 'redux';
 
-
 class BookDetail extends Component {
 
   render() {
@@ -33,6 +32,5 @@ function mapStateToProps(state) {
     book: state.activeBook,
   };
 }
-
 
 export default connect(mapStateToProps)(BookDetail);
