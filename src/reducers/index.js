@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import bookList from '../data/books';
+import bookList from "../data/books";
 
 const initialState = bookList;
 console.log(initialState);
@@ -10,21 +10,20 @@ console.log(initialState);
 //STATE = NULL es6 syntax that says if state comes in undefined, it becomes null by default...
 //b/c redux does not allow to return undefined
 const ActiveBook = (state = null, action) => {
-  switch(action.type) {
-    case 'BOOK_SELECTED':
-    return action.payload
+  switch (action.type) {
+    case "BOOK_SELECTED":
+      return action.payload;
     default:
-  return state;
-
+      return state;
   }
-}
+};
+
 // can never return a mutated state in reducers..must be fresh state or original
 //because we dont have a selected book right off the bat, we get an error
 
-
 const rootReducer = combineReducers({
   books: initialState,
-  activeBook: ActiveBook,
+  activeBook: ActiveBook
 });
 
 export default rootReducer;

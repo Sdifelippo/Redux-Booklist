@@ -2,10 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
 import './styles/index.css';
-
-
 
 //redux imports
 import { Provider } from 'react-redux';
